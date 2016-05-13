@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bajaObjectGraph version="4.0" reversibleEncodingKeySource="none" reversibleEncodingValidator="[null.1]=" >
+<p m="b=baja" t="b:UnrestrictedFolder">
+ <p n="BarcodeGenerator" m="barcode=barcode" t="barcode:BarcodeGenerator">
+  <p n="layout" v="0.0,0.0,200.0,150.0"/>
+  <p n="Bindings" t="barcode:BarcodeBinding">
+   <p n="barcode" m="conv=converters" t="conv:PassThrough"/>
+  </p>
+ </p>
+</p>
+</bajaObjectGraph>

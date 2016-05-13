@@ -1,0 +1,3 @@
+<types>
+  <type class="testng.niagarasummit.barcode.BTestBarcodeNumeric" name="TestBarcodeNumeric"/>
+</types>

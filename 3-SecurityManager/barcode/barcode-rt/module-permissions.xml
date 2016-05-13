@@ -1,0 +1,8 @@
+<permissions>
+  <niagara-permission-groups type="station">
+    <req-permission>
+      <name>LOGGING</name>
+      <purposeKey>This module needs access to logging for debugging purposes.</purposeKey>
+    </req-permission>
+  </niagara-permission-groups>
+</permissions>

@@ -1,0 +1,8 @@
+/* Environment Configuration File */
+
+// DO NOT MODIFY THIS FILE 
+// 
+// Its contents are auto-generated and your changes may be erased
+gradle.ext.niagara_dev_home = "C:/Users/arthur/Niagara4.3/tridium/demo/1-Uberjar"
+gradle.ext.niagara_home = "C:/Users/arthur/Niagara4.3/tridium"
+gradle.ext.niagara_user_home = "C:/Users/arthur/Niagara4.3/tridium"

@@ -1,0 +1,24 @@
+{
+  "name": "barcode",
+  "description": "Barcode Generator",
+  "version": "1.0.0",
+  "homepage": "",
+  "author": {
+    "name": "Zebra",
+    "email": "zebra@zebra.com"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt ci"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-niagara": "^0.1.22"
+  },
+  "keywords": []
+}

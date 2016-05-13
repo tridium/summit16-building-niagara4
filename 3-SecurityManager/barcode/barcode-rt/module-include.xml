@@ -1,0 +1,3 @@
+<types>
+  <type class="com.niagarasummit.barcode.BBarcodeNumeric" name="BarcodeNumeric"/>
+</types>

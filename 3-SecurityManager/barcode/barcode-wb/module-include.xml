@@ -1,0 +1,9 @@
+<types>
+  <type class="com.niagarasummit.barcode.ui.BBarcodeGenerator" name="BarcodeGenerator"/>
+  <type class="com.niagarasummit.barcode.ui.BBarcodeBinding" name="BarcodeBinding">
+    <agent>
+      <on type="barcode:BarcodeNumeric"/>
+      <on type="barcode:BarcodeGenerator"/>
+    </agent>
+  </type>
+</types>

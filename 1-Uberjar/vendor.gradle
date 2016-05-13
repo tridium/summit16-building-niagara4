@@ -1,0 +1,6 @@
+/* Vendor Configuration File */
+group = 'Zebra'
+
+def moduleVersion = '1.0'
+def moduleVersionPatch = [:]
+version = "${moduleVersion}${moduleVersionPatch.get(project.name, '')}"

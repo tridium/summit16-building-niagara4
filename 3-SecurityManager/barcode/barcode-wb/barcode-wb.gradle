@@ -1,0 +1,78 @@
+/* Module Build File */
+description     = "Barcode Generator"
+ext {
+}
+niagaraModule {
+  preferredSymbol = "bcg"
+  moduleName = "barcode"
+  runtimeProfile = "wx"
+}
+
+dependencies {
+  compile "Tridium:nre:4.0"
+  compile "Tridium:baja:4.0"
+  compile "Tridium:gx-rt:4.0"
+  compile "Tridium:bajaui-wb:4.0"
+  compile "Tridium:web-rt:4.0"
+  compile "Tridium:hx-wb:4.0"
+  compile project(':barcode-rt')
+}
+
+moduleTestJar {
+  from('srcTest') {
+  }
+}
+
+// Establish additional dependency on zxing barcode library
+buildscript {
+  repositories {
+    maven { url "${niagara_home}/etc/m2/repository" }
+    mavenCentral()
+  }
+  dependencies {
+    classpath "com.google.zxing:javase:3.2.1"
+  }
+}
+
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.EncodeHintType
+import com.google.zxing.common.BitMatrix
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel
+import com.google.zxing.MultiFormatWriter
+import com.google.zxing.client.j2se.MatrixToImageWriter
+
+// Define a task class to generate QR codes
+class QrCodeGen extends DefaultTask {
+  @TaskAction
+  void qr() {
+    def charEnc = 'UTF-8'
+    def url = 'https://itunes.apple.com/us/app/niagara-summit-2016/id1108958315?mt=8'
+    def filePath = 'iphone.gif'
+    if (project.hasProperty('android')) {
+      url = 'https://play.google.com/store/apps/details?id=com.tridium.niagarasummit'
+      filePath = 'android.gif'
+    }
+
+    // Set up the destination folder
+    def rcDir = new File("${project.buildDir}/generated-resources/qrcodes")
+    rcDir.exists() || rcDir.mkdirs()
+
+    // Create the QR code
+    Map hintMap = new HashMap();
+    hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L)
+    BitMatrix matrix = new MultiFormatWriter().encode(
+      new String(url.getBytes(charEnc), charEnc),
+      BarcodeFormat.QR_CODE, 300, 300, hintMap)
+    MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath.lastIndexOf('.') + 1), new File(rcDir, filePath))
+  }
+}
+
+// Declare an instance of the task
+task qrCode(type: QrCodeGen) {
+  doFirst {
+    println "Running the QR Code task"
+
+  }
+}
+// Establish a task dependency to ensure QR codes are generated
+project.tasks.processResources.dependsOn "qrCode"

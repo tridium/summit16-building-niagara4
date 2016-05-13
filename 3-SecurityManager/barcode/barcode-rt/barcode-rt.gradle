@@ -1,0 +1,31 @@
+/* Module Build File */
+description     = "Barcode Generator"
+ext {
+}
+niagaraModule {
+  preferredSymbol = "bcg"
+  moduleName = "barcode"
+  runtimeProfile = "rt"
+
+  modulePart {
+    name = 'barcode-wb'
+    runtimeProfile = 'wb'
+  }
+  modulePart {
+    name = 'barcode-ux'
+    runtimeProfile = 'ux'
+  }
+}
+
+dependencies {
+  compile "Tridium:nre:4.0"
+  compile "Tridium:baja:4.0"
+  compile "Tridium:control-rt:4.0"
+
+  uberjar "net.sf.barcode4j:barcode4j:2.1"
+}
+
+moduleTestJar {
+  from('srcTest') {
+  }
+}

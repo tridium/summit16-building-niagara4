@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bajaObjectGraph version="4.0" reversibleEncodingKeySource="none" reversibleEncodingValidator="[null.1]=" >
+<p m="b=baja" t="b:UnrestrictedFolder">
+ <p n="Points" t="b:UnrestrictedFolder">
+  <p n="BarcodeNumeric" m="barcode=barcode" t="barcode:BarcodeNumeric"/>
+ </p>
+</p>
+</bajaObjectGraph>
